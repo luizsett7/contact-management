@@ -8,22 +8,22 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <table class="min-w-full bg-white border border-gray-300">
+                    <table class="min-w-full w-full bg-white border border-gray-300">
                         <thead>
                             <tr>
                                 <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 bg-gray-100">Name</th>
                                 <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 bg-gray-100">Contact</th>
                                 <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 bg-gray-100">Email</th>
-                                <th class="px-6 py-3 text-left text-sm font-medium text-gray-700 bg-gray-100">Actions</th>
+                                <th class="px-6 py-3 text-center text-sm font-medium text-gray-700 bg-gray-100">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($contacts as $contact)
                             <tr class="border-b hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-800">{{ $contact->name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800">{{ $contact->contact }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800">{{ $contact->email }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-800">
+                                <td class="px-6 py-4 text-sm text-gray-800 text-left">{{ $contact->name }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 text-left">{{ $contact->contact }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 text-left">{{ $contact->email }}</td>
+                                <td class="px-6 py-4 text-sm text-gray-800 text-center">
                                     <a href="{{ route('contacts.edit', $contact) }}" class="text-blue-600 hover:underline">Edit</a>
                                     <form action="{{ route('contacts.destroy', $contact) }}" method="POST" class="inline-block ml-2">
                                         @csrf
