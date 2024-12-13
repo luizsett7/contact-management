@@ -11,6 +11,19 @@
                     <h1 class="text-xl font-bold text-gray-700 mb-4">
                         {{ isset($contact) ? 'Update Contact' : 'Create Contact' }}
                     </h1>
+
+                    <!-- Display Validation Errors -->
+                    @if ($errors->any())
+                        <div class="mb-4">
+                            <div class="text-red-600 font-semibold mb-2">Validation Errors:</div>
+                            <ul class="list-disc list-inside text-red-500">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ isset($contact) ? route('contacts.update', $contact) : route('contacts.store') }}" method="POST">
                         @csrf
                         @if(isset($contact)) @method('PUT') @endif
@@ -19,7 +32,7 @@
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
                             <input type="text"
                                 name="name"
-                                value="{{ $contact->name ?? '' }}"
+                                value="{{ old('name', $contact->name ?? '') }}"
                                 required
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400" />
                         </div>
@@ -28,7 +41,7 @@
                             <label for="contact" class="block text-sm font-medium text-gray-700 mb-1">Contact</label>
                             <input type="text"
                                 name="contact"
-                                value="{{ $contact->contact ?? '' }}"
+                                value="{{ old('contact', $contact->contact ?? '') }}"
                                 required
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400" />
                         </div>
@@ -37,7 +50,7 @@
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
                             <input type="email"
                                 name="email"
-                                value="{{ $contact->email ?? '' }}"
+                                value="{{ old('email', $contact->email ?? '') }}"
                                 required
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400" />
                         </div>
