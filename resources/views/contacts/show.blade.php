@@ -1,3 +1,4 @@
+<x-app-layout>
 <h1>{{ $contact->name }}</h1>
 <p>{{ $contact->contact }}</p>
 <p>{{ $contact->email }}</p>
@@ -7,3 +8,4 @@
     @method('DELETE')
     <button type="submit">Delete</button>
 </form>
+</x-app-layout>

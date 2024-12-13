@@ -1,3 +1,4 @@
+<x-app-layout>
 @foreach ($contacts as $contact)
     <tr>
         <td>{{ $contact->name }}</td>
@@ -13,3 +14,4 @@
         </td>
     </tr>
 @endforeach
+</x-app-layout>

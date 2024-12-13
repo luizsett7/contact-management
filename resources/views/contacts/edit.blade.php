@@ -1,3 +1,4 @@
+<x-app-layout>
 <form action="{{ isset($contact) ? route('contacts.update', $contact) : route('contacts.store') }}" method="POST">
     @csrf
     @if(isset($contact)) @method('PUT') @endif
@@ -9,3 +10,4 @@
     <input type="email" name="email" value="{{ $contact->email ?? '' }}" required />
     <button type="submit">{{ isset($contact) ? 'Update' : 'Create' }}</button>
 </form>
+</x-app-layout>
